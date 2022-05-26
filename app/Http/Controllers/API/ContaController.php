@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contas;
+use App\Models\Conta;
 use App\Http\Resources\ContaResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -33,9 +33,9 @@ class ContaController extends Controller
 
         $validator = Validator::make($data, [
             'nome' => 'required|max:255',
-            // 'senha' => 'required|integer|min:10',
-            'email' => 'required|email'
-            // 'nascimento' => 'required|numeric'
+            'senha' => 'required|min:10',
+            'email' => 'required|email',
+            'nascimento' => 'required|date'
         ]);
 
         if ($validator->fails()) {

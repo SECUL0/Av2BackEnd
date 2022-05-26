@@ -4,11 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Parametros;
-use App\Http\Resources\ImcResource;
+use App\Http\Resources\ParametrosResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class ImcController extends Controller
+class ParametrosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class ImcController extends Controller
      */
     public function index()
     {
-        $imcs = Imc::all();
-        return response([ 'data' => ImcResource::collection($imcs), 'message' => 'Retrieved successfully'], 200);
+        $Parametross = Parametros::all();
+        return response([ 'data' => ParametrosResource::collection($Parametross), 'message' => 'Retrieved successfully'], 200);
     }
 
     /**
@@ -32,9 +32,9 @@ class ImcController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            'name' => 'required|max:255',
-            'weight' => 'required|integer|min:10',
-            'height' => 'required|numeric'
+            // 'name' => 'required|max:255',
+            // 'weight' => 'required|integer|min:10',
+            // 'height' => 'required|numeric'
         ]);
 
         if ($validator->fails()) {
@@ -43,44 +43,44 @@ class ImcController extends Controller
 
         $data['result'] = $data['weight'] / pow($data['height'], 2);
 
-        $imc = Imc::create($data);
-        return response(['data' => new ImcResource($imc), 'message' => 'Created successfully'], 201);
+        $Parametros = Parametros::create($data);
+        return response(['data' => new ParametrosResource($Parametros), 'message' => 'Created successfully'], 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Imc  $imc
+     * @param  \App\Models\Parametros  $Parametros
      * @return \Illuminate\Http\Response
      */
-    public function show(Imc $imc)
+    public function show(Parametros $Parametros)
     {
-        return response(['data' => new ImcResource($imc), 'message' => 'Retrieved successfully'], 200);
+        return response(['data' => new ParametrosResource($Parametros), 'message' => 'Retrieved successfully'], 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Imc  $imc
+     * @param  \App\Models\Parametros  $Parametros
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Imc $imc)
+    public function update(Request $request, Parametros $Parametros)
     {
-        $imc->update($request->all());
+        $Parametros->update($request->all());
 
-        return response(['data' => new ImcResource($imc), 'message' => 'Update successfully'], 200);
+        return response(['data' => new ParametrosResource($Parametros), 'message' => 'Update successfully'], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Imc  $imc
+     * @param  \App\Models\Parametros  $Parametros
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Imc $imc)
+    public function destroy(Parametros $Parametros)
     {
-        $imc->delete();
+        $Parametros->delete();
 
         return response(['message' => 'Deleted']);
     }

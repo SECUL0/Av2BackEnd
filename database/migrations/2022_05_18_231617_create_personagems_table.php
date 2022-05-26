@@ -15,7 +15,15 @@ class CreatePersonagemsTable extends Migration
     {
         Schema::create('personagems', function (Blueprint $table) {
             $table->id();
+            $table->biginteger('cor_id')->unsigned();
+            $table->biginteger('parametro_id')->unsigned();
+            $table->foreign('cor_id')->references('id')->on('cores');
+            $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->timestamps();
+            $table->string('nick', 255);
+            $table->enum('classe',['Mago','Guerreiro','Lutador','Curandeiro','Necromante','Arqueiro']);
+            $table->enum('Sexo',['Feminino','Masculino']);
+           
         });
     }
 

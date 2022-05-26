@@ -16,6 +16,17 @@ class CreateParametrosTable extends Migration
         Schema::create('parametros', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('cabeça');
+            $table->integer('olho');
+            $table->integer('boca');
+            $table->integer('braço');
+            $table->integer('perna');
+            $table->integer('orelha');
+            $table->integer('nariz');
+            $table->integer('queixo');
+            $table->integer('tronco');
+            $table->integer('pe');
+            
         });
     }
 
