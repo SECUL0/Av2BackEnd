@@ -16,7 +16,7 @@ class Personagem extends Model
      */
     protected $fillable = [
         'nick',
-        'clasee',
+        'classe',
         'sexo'
         
     ];

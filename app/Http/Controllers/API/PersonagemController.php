@@ -32,7 +32,9 @@ class PersonagemController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            // 'name' => 'required|max:255',
+            'nick' => 'required|min:2',
+            'classe' => 'required|',
+            'sexo' => 'required|',
             // 'weight' => 'required|integer|min:10',
             // 'height' => 'required|numeric'
         ]);

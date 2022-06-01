@@ -32,9 +32,18 @@ class ParametrosController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            // 'name' => 'required|max:255',
-            // 'weight' => 'required|integer|min:10',
-            // 'height' => 'required|numeric'
+            
+            'cabeca' => 'required|integer',
+            'orelha'=> 'required|integer',
+            'olho'=> 'required|integer',
+            'nariz'=> 'required|integer',
+            'boca'=> 'required|integer',
+            'queixo'=> 'required|integer',
+            'braco'=> 'required|integer',
+            'tronco'=> 'required|integer',
+            'perna'=> 'required|integer',
+            'pe'=> 'required|integer'
+            
         ]);
 
         if ($validator->fails()) {

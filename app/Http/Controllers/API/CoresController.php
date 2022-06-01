@@ -32,7 +32,9 @@ class CoresController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            // 'name' => 'required|max:255',
+            'corCabelo' => 'required|',
+            'corOlho' => 'required|',
+            'corCorpo' => 'required|',
             // 'weight' => 'required|integer|min:10',
             // 'height' => 'required|numeric'
         ]);

@@ -32,10 +32,12 @@ class EnderecoController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            // 'name' => 'required|max:255',
-            // 'weight' => 'required|integer|min:10',
+            'endereco' => 'required|max:255',
             'cep' => 'required|numeric',
-            'numCasa' => 'required|numeric'
+            'numCasa' => 'required|numeric',
+            'bairro' => 'required|',
+            'cidade' => 'required|',
+            'estado' => 'required|',
         ]);
 
         if ($validator->fails()) {
