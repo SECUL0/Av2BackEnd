@@ -43,7 +43,7 @@ class PersonagemController extends Controller
             return response(['error' => $validator->errors(), 'message' => 'Validation Error']);
         }
 
-        $data['result'] = $data['weight'] / pow($data['height'], 2);
+       
 
         $Personagem = Personagem::create($data);
         return response(['data' => new PersonagemResource($Personagem), 'message' => 'Created successfully'], 201);

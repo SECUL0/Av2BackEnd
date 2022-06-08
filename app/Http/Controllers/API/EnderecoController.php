@@ -43,8 +43,7 @@ class EnderecoController extends Controller
         if ($validator->fails()) {
             return response(['error' => $validator->errors(), 'message' => 'Validation Error']);
         }
-
-        $data['result'] = $data['weight'] / pow($data['height'], 2);
+        
 
         $Endereco = Endereco::create($data);
         return response(['data' => new EnderecoResource($Endereco), 'message' => 'Created successfully'], 201);

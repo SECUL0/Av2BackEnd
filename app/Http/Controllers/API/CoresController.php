@@ -43,7 +43,7 @@ class CoresController extends Controller
             return response(['error' => $validator->errors(), 'message' => 'Validation Error']);
         }
 
-        $data['result'] = $data['weight'] / pow($data['height'], 2);
+        
 
         $Cores = Cores::create($data);
         return response(['data' => new CoresResource($Cores), 'message' => 'Created successfully'], 201);

@@ -49,8 +49,7 @@ class ParametrosController extends Controller
         if ($validator->fails()) {
             return response(['error' => $validator->errors(), 'message' => 'Validation Error']);
         }
-
-        $data['result'] = $data['weight'] / pow($data['height'], 2);
+     
 
         $Parametros = Parametros::create($data);
         return response(['data' => new ParametrosResource($Parametros), 'message' => 'Created successfully'], 201);
