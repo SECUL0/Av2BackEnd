@@ -18,7 +18,9 @@ class Conta extends Model
         'nome',
         'email',
         'senha',
-        'nascimento'
+        'nascimento',
+        'personagems_id',
+        'endereco_id'
     ];
 
     /**

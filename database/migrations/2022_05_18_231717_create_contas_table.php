@@ -15,10 +15,10 @@ class CreateContasTable extends Migration
     {
         Schema::create('contas', function (Blueprint $table) {
             $table->id();
-            // $table->biginteger('personagems_id')->unsigned();
-            // $table->biginteger('endereco_id')->unsigned();
-            // $table->foreign('personagems_id')->references('id')->on('personagems');
-            // $table->foreign('endereco_id')->references('id')->on('enderecos');
+            $table->biginteger('personagems_id')->unsigned();
+            $table->biginteger('endereco_id')->unsigned();
+            $table->foreign('personagems_id')->references('id')->on('personagems');
+            $table->foreign('endereco_id')->references('id')->on('enderecos');
             $table->timestamps();            
             $table->string('nome', 255);
             $table->string('senha');

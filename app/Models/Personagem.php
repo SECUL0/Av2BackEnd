@@ -17,8 +17,9 @@ class Personagem extends Model
     protected $fillable = [
         'nick',
         'classe',
-        'sexo'
-        
+        'sexo',
+        'cor_id',
+        'parametro_id'        
     ];
 
     /**
